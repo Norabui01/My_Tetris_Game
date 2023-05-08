@@ -25,7 +25,7 @@ public class ZeeBrick extends TetrisBrick{
             position[2][0] -= 1;
             position[2][1] -= 1;
 
-            position[3][1] -= 2;
+            position[numSegments - 1][1] -= 2;
         }else{
             position[0][0] += 1;
             position[0][1] -= 1;
@@ -33,7 +33,7 @@ public class ZeeBrick extends TetrisBrick{
             position[2][0] += 1;
             position[2][1] += 1;
 
-            position[3][1] += 2;
+            position[numSegments - 1][1] += 2;
         }
     }
 

@@ -9,13 +9,12 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 
-public class TetrisDisplay extends JPanel {
+public class TetrisDisplay extends JPanel{
     private TetrisGame game;
-    private int start_x = 60;
-    private int start_y = 30;
-    private int cell_size = 10;
+    private int start_x = 110;
+    private int start_y = 90;
+    private int cell_size = 15;
     private int speed = 300;
-
     private boolean pause;
     private Timer timer;
     private Color[] colors;
@@ -45,9 +44,39 @@ public class TetrisDisplay extends JPanel {
     }
 
     public void paintComponent(Graphics g){
+        super.paintComponent(g);
         drawWell(g);
         drawBrick(g);
         drawBackground(g);
+        drawGameOverSignal(g);
+        drawScore(g);
+        drawTetrisSign(g);
+    }
+
+    private void drawScore(Graphics g){
+        int font_size = 20;
+        Font medFont = new Font("Arial", 3, font_size);
+        String score = "Score: " + game.getScore();
+
+        g.setColor(Color.GREEN);
+        g.setFont(medFont);
+        g.drawString(score, 10, 20);
+
+    }
+
+    private void drawGameOverSignal(Graphics g){
+        if(game.getState() == 1) {
+            g.setColor(Color.RED);
+            g.fillRect(start_x - 22, start_y + 40, cell_size * (game.getCols() + 5), cell_size * 5);
+
+            int big_font_size = 40;
+            Font bigFont = new Font("Arial", 1, big_font_size);
+
+            g.setColor(Color.BLUE);
+            g.setFont(bigFont);
+            g.drawString("Game Over!", 8 * game.getCols() + 3 , start_y + 90);
+
+        }
     }
 
     private void drawWell(Graphics g){
@@ -97,6 +126,15 @@ public class TetrisDisplay extends JPanel {
         }
     }
 
+    private void drawTetrisSign(Graphics g){
+        int big_font_size = 20;
+        Font bigFont = new Font("Arial", 1, big_font_size);
+
+        g.setColor(Color.BLUE);
+        g.setFont(bigFont);
+        g.drawString("Tetris - Ngoc Bui", 500 , 20);
+    }
+
     private void translateKey(KeyEvent ke){
         int code = ke.getKeyCode();
         switch(code){
@@ -128,6 +166,8 @@ public class TetrisDisplay extends JPanel {
 
     private void cycleMove(){
         game.makeMove("down");
+        game.fullRowDetect();
+        game.saveHighScore();
         repaint();
     }
 }

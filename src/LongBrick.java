@@ -25,8 +25,8 @@ public class LongBrick extends TetrisBrick{
             position[1][0] -= 1;
             position[1][1] += 1;
 
-            position[3][0] += 1;
-            position[3][1] -= 1;
+            position[numSegments - 1][0] += 1;
+            position[numSegments - 1][1] -= 1;
         }else{
             position[0][0] += 2;
             position[0][1] -= 2;
@@ -34,8 +34,8 @@ public class LongBrick extends TetrisBrick{
             position[1][0] += 1;
             position[1][1] -= 1;
 
-            position[3][0] -= 1;
-            position[3][1] += 1;
+            position[numSegments - 1][0] -= 1;
+            position[numSegments - 1][1] += 1;
         }
     }
 

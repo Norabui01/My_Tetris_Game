@@ -24,16 +24,16 @@ public class EssBrick extends TetrisBrick{
 
             position[2][0] -= 2;
 
-            position[3][0] -= 1;
-            position[3][1] -= 1;
+            position[numSegments - 1][0] -= 1;
+            position[numSegments - 1][1] -= 1;
         }else{
             position[1][0] -= 1;
             position[1][1] += 1;
 
             position[2][0] += 2;
 
-            position[3][0] += 1;
-            position[3][1] += 1;
+            position[numSegments - 1][0] += 1;
+            position[numSegments - 1][1] += 1;
         }
     }
 
