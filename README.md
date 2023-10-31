@@ -1,6 +1,6 @@
 # Introduction to My_Tetris_Game
 
-<html><h3>Hellou! This is my first OOP project following strict UMLs and custom graphics. I was very interested in it since the first day of class and I have made this by myself.</h3>
+<html><h3>This is my first OOP project following strict UMLs and custom graphics. I was very interested in it since the first day of class and I have made this by myself.</h3>
   
 This is basic Tetris game with full functions. It can also save the game, retrieve game, display high score,... and one more interesting thing is it can change the size of the well<^-^>!(Pictures below)
 
