@@ -1,3 +1,6 @@
+## License
+This project is licensed under the [MIT License](./LICENSE).
+
 # Introduction to My_Tetris_Game
 
 <html><h3>This is my first OOP project following strict UMLs and custom graphics. I was very interested in it since the first day of class and I have made this by myself.</h3>
